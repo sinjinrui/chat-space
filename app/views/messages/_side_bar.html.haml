@@ -4,18 +4,16 @@
       %p.Top-items__name
         = current_user.name
       .Top-items__icons
-        = link_to '#' do
+        = link_to new_group_path do
           %i.fas.fa-edit.Top-items__icons--btn
         = link_to edit_user_path(current_user) do
           %i.fas.fa-cog.Top-items__icons--btn
 
   .Side-bar__group--list
-    .Member
-      %p.Member__name tech
-      %p.Member__message まだメッセージはありません
-    .Member
-      %p.Member__name tech2
-      %p.Member__message まだメッセージはありません
-    .Member
-      %p.Member__name tech3
-      %p.Member__message そろそろメッセージを書きましょう
+    - current_user.groups.each do |group|
+      .Member
+        = link_to group_messages_path(group) ,class: "Member__link" do
+          .Member__name
+            = group.name
+          .Member__message
+            = group.show_last_message
