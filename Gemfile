@@ -71,6 +71,7 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'mini_magick'
 gem 'jquery-rails'
 group :production do
